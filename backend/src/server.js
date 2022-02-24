@@ -6,6 +6,15 @@ const start = async () => {
         host: 'localhost'
     });
 
+    server.route({
+        method: 'GET',
+        path: '/hello',
+        handler: (req, h) => {
+            return 'Hello!';
+            // you can personalize returned codes like this: return.response('Hello!').code(200);
+        }
+    });
+
     await server.start();
     console.log(`Server is listening on ${server.info.uri}`);
 };
